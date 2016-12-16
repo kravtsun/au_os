@@ -72,3 +72,11 @@ void serial_write_hex(uint32_t num)
     serial_write(buf, buf_size+1);
     serial_putchar('\n');
 }
+
+
+void serial_error_message(const char *left, const char *filename, const char *right)
+{
+    serial_write_terminated(left);
+    serial_write_terminated(filename);
+    serial_write_terminated(right);
+}

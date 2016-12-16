@@ -100,6 +100,11 @@ void initramfs()
         const bool is_dir = S_ISDIR(mode);
         const char *contents = ptr + pad4(sizeof(cpio_header) + filename_size);
         fentry *f = ramfs_create_file(filename, is_dir);
+        if (f == NULL)
+        {
+            serial_error_message("ERROR: Create ", filename, " failed.\n");
+            return;
+        }
 
         const uint32_t filesize = cpiotoi(cpio_ptr->filesize, 8);
         if (filesize > 0 && is_dir)

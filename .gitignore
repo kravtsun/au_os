@@ -12,3 +12,5 @@ kernel
 misc
 *.s
 *.d
+
+*.pro

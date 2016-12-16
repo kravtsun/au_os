@@ -9,5 +9,6 @@ void serial_putchar(int c);
 void serial_write(const char *buf, size_t size);
 void serial_write_terminated(const char *buf);
 void serial_write_hex(uint32_t num);
+void serial_error_message(const char *left, const char *filename, const char *right);
 
 #endif /*__SERIAL_H__*/

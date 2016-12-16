@@ -15,13 +15,13 @@ typedef struct fentry
     char *contents; size_t size;
     bool is_dir;
 
-    mutex *m;
+    mutex *mtx;
 } fentry;
 
 
 typedef struct fentry_list
 {
-    fentry *begin, *end;
+    fentry *begin;
 } fentry_list;
 
 
