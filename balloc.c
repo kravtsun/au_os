@@ -210,11 +210,8 @@ static void balloc_parse_mmap(const struct multiboot_info *info)
     __balloc_add_range(&memory_map, kbegin, kend);
     __balloc_add_range(&free_ranges, kbegin, kend);
 
-    const uintptr_t ibegin = initrd_begin;
-    const uintptr_t iend = initrd_end - 1;
-
-    __balloc_add_range(&memory_map, ibegin, iend);
-    __balloc_add_range(&free_ranges, ibegin, iend);
+    __balloc_add_range(&memory_map, initrd_begin, initrd_end);
+    __balloc_add_range(&free_ranges, initrd_begin, initrd_end);
 
 	ptr = begin;
     while (ptr + sizeof(struct multiboot_mmap_entry) <= end) {
@@ -229,7 +226,7 @@ static void balloc_parse_mmap(const struct multiboot_info *info)
 	}
 
     __balloc_remove_range(&free_ranges, kbegin, kend);
-    __balloc_remove_range(&free_ranges, ibegin, iend);
+    __balloc_remove_range(&free_ranges, initrd_begin, initrd_end);
 }
 
 static void __balloc_dump_ranges(const struct rb_tree *tree)
