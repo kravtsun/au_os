@@ -45,12 +45,13 @@ fentry *fentry_create(const char *filename, fentry *parent, bool is_dir)
             serial_error_message("Internal error when creating an entry.\n","", "");
         }
         mutex_lock(parent->mtx);
-        res = fentry_list_add(parent->children, res);
+        fentry *try_add_res = fentry_list_add(parent->children, res);
         mutex_unlock(parent->mtx);
-        if (res == NULL)
+        if (res != try_add_res)
         {
+            mem_free(res->filename);
             mem_free(res);
-            return NULL;
+            return try_add_res;
         }
     }
     res->next = NULL;
