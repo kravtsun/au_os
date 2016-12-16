@@ -1,0 +1,14 @@
+*.o
+*.txt
+*.bin
+*.pro.user
+
+build-*
+*.swp
+planner/planner
+ticker/ticker
+acpi/acpi
+kernel
+misc
+*.s
+*.d
