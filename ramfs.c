@@ -424,7 +424,7 @@ size_t ramfs_write(fentry *f, size_t seek, const void *contents, const size_t co
         return 0;
     }
 
-    if (seek <= f->size)
+    if (seek <= f->size && count > 0)
     {
         serial_error_message("Size of file: \"", f->filename,
         "\" is too small to set seek at: ");
