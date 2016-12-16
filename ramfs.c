@@ -14,18 +14,17 @@ void fentry_list_release(fentry_list *fl);
 void fentry_list_add(fentry_list *fl, fentry *f);
 
 fentry *__root = NULL;
-fentry_list **all_everythin = NULL;
-fentry_list **all_directories = NULL;
-fentry_list **all_files = NULL;
 
 // TODO write a decent function to signalize error (not through copy-paste serial_write_terminated).
 
 fentry *fentry_create(const char *filename, fentry *parent, bool is_dir)
 {
     fentry *res = (fentry *)mem_alloc(sizeof(fentry));
-    const size_t filename_size = strlen(filename);
-    res->filename = mem_alloc(filename_size+1); // '\0'
-    memcpy(res->filename, filename, filename_size+1);
+    size_t filename_size = strlen(filename);
+    if (filename[filename_size-1] == '/') filename_size--;
+    res->filename = mem_alloc(filename_size+1);
+    memcpy(res->filename, filename, filename_size);
+    res->filename[filename_size] = '\0';
     res->parent = parent;
     if (parent == NULL && __root == NULL)
     {
@@ -248,7 +247,7 @@ fentry *ramfs_create_file(const char *filename, bool is_dir)
     {
         serial_write_terminated("ERROR: directory: \"");
         serial_write_terminated(directory_name);
-        serial_write_terminated("\"does not exist.");
+        serial_write_terminated("\"does not exist.\n");
         return NULL;
     }
 
@@ -259,6 +258,8 @@ fentry *ramfs_create_file(const char *filename, bool is_dir)
 
 fentry *ramfs_find_recursive(fentry *f, const char *filename)
 {
+    if (fentry_equals_filename(f, filename)) return f;
+
     fentry *p = fentry_list_find_with_name(f->children, filename);
     if (p) return p;
     fentry *it = f->children->begin;
@@ -288,7 +289,7 @@ fentry *ramfs_mkdir(const char *filename)
     {
         serial_write_terminated("ERROR: directory: \"");
         serial_write_terminated(filename);
-        serial_write_terminated("\"already exists.");
+        serial_write_terminated("\"already exists.\n");
         return f;
     }
     return ramfs_create_file(filename, false);

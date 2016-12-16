@@ -25,29 +25,8 @@ static void qemu_gdb_hang(void)
 #endif
 }
 
-#define __ROOTDIR__ "/home/kravtsun/Dropbox/AU/CPP"
-
 void ramfs_tests()
-{
-    ramfs_open(__ROOTDIR__"/Семинары/dummy_file.hs");
-    ramfs_mkdir(__ROOTDIR__"/Лекции/DUMMY_DIR");
-
-    ramfs_readdir(__ROOTDIR__"/Лекции");
-    serial_write_terminated("-------------------------------------------------------------------------------------------\n");
-
-    ramfs_readdir(__ROOTDIR__"/Семинары");
-    serial_write_terminated("-------------------------------------------------------------------------------------------\n");
-//    ramfs_readdir(__ROOTDIR__);
-//    serial_write_terminated("-------------------------------------------------------------------------------------------\n");
-    ramfs_readdir(__ROOTDIR__"/cpp_notes.txt");
-
-    const char *fname = __ROOTDIR__"/cpp_notes.txt";
-    fentry *f = ramfs_open(fname);
-    ramfs_read(f, 0);
-    ramfs_write(f, 10, "Hello", 5);
-    ramfs_read(f, 0);
-    serial_write_terminated("---------------------------Fine del test---------------------------\n");
-}
+{}
 
 void main(struct multiboot_info *mboot_info)
 {

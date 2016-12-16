@@ -87,7 +87,7 @@ void initramfs()
         if (str_compare(filename, END_OF_ARCHIVE, strlen(END_OF_ARCHIVE)) == 0)
         {
             serial_write_terminated("Initramfs is loaded\n");
-            serial_write_terminated("--------------------------------------------------------------");
+            serial_write_terminated("--------------------------------------------------------------\n");
             break;
         }
 #ifdef __DEBUG
