@@ -6,6 +6,7 @@
 #include "serial.h"
 
 
+#define MIN(a, b) (((a) < (b))? (a) : (b));
 #define RAMFS_MAX_FILENAME_SIZE 256
 //static char ramfs_filename_buf[RAMFS_MAX_FILENAME_SIZE];
 
@@ -361,7 +362,11 @@ fentry *ramfs_open(const char *filename)
         if (f == NULL)
         {
             serial_error_message("ERROR: create: ", filename, " failed. \n");
-            return NULL;
+            // try to open it again:
+            if ((f = ramfs_find(filename)) == NULL)
+            {
+                serial_error_message("Internal error with opening/creation file: ", filename, "\n");
+            }
         }
     }
 
@@ -374,60 +379,70 @@ void ramfs_close(fentry *f)
     mutex_unlock(f->mtx);
 }
 
-
-void ramfs_read(fentry *f, size_t seek)
+size_t ramfs_read(const fentry *f, size_t seek, void *buf, size_t count)
 {
     if (!f->mtx->locked)
     {
         serial_error_message("ERROR: One has to open file: ",
                              f->filename,"before reading it.\n");
-        return;
+        return 0;
     }
 
     if (f == NULL)
     {
         serial_error_message("ERROR: cannot write to NULL file: ", "", "\n");
-        return;
+        return 0;
     }
+
     if (f->size <= seek)
     {
         serial_error_message("Size of file: \"", f->filename,
         "\" is too small to set seek at: ");
         serial_write_hex(seek);
-        return;
+        return 0;
     }
-    if (f)
-    {
-        serial_write(f->contents + seek, f->size - seek);
-    }
+
+    const size_t res_count = MIN(f->size - seek, count);
+    memcpy(buf, f->contents + seek, res_count);
+    return res_count;
 }
 
 
-void ramfs_write(fentry *f, size_t seek, const char *contents, const size_t size)
+size_t ramfs_write(fentry *f, size_t seek, const void *contents, const size_t count)
 {
     if (f->is_dir)
     {
         serial_error_message("ERROR: Cannot write into directory: ", f->filename, "\n");
-        return;
+        return 0;
     }
 
     if (!f->mtx->locked)
     {
         serial_error_message("ERROR: One has to open file: ",
                              f->filename, "before writing into it.\n");
-        return;
+        return 0;
     }
 
-    if (seek + size <= f->size)
+    if (seek <= f->size)
     {
-        memcpy(f->contents + seek, contents, size);
+        serial_error_message("Size of file: \"", f->filename,
+        "\" is too small to set seek at: ");
+        serial_write_hex(seek);
+        return 0;
+    }
+
+    if (seek + count <= f->size)
+    {
+        memcpy(f->contents + seek, contents, count);
     }
     else
     {
-        char *tmp_buffer = mem_alloc(seek+size);
+        char *tmp_buffer = mem_alloc(seek + count);
         memcpy(tmp_buffer, f->contents, seek);
-        memcpy(tmp_buffer + seek, contents, size);
-        fentry_file_set_contents(f, tmp_buffer, seek + size);
+        memcpy(tmp_buffer + seek, contents, count);
+        fentry_file_set_contents(f, tmp_buffer, seek + count);
         mem_free(tmp_buffer);
     }
+
+    return count;
 }

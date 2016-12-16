@@ -43,10 +43,10 @@ fentry *ramfs_open(const char *filename);
 void ramfs_close(fentry *f);
 
 
-void ramfs_read(fentry *f, size_t seek);
+size_t ramfs_read(const fentry *f, size_t seek, void *buf, size_t count);
 
 
-void ramfs_write(fentry *f, size_t seek, const char *contents, const size_t size);
+size_t ramfs_write(fentry *f, size_t seek, const void *contents, const size_t count);
 
 
 void ramfs_tests();
