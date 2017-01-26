@@ -56,6 +56,10 @@ void main(struct multiboot_info *mboot_info)
     threads_setup();
     enable_ints();
 
+    initramfs();
+
+    ramfs_tests();
+
     syscall_tests();
 
     printf("===The end.===\n");
