@@ -23,6 +23,13 @@ static inline void read_gdtr(struct desc_table_ptr *ptr)
 	__asm__ ("sgdt %0" : "=m"(*ptr));
 }
 
+static inline void *gdtr_ptr()
+{
+	struct desc_table_ptr ptr;
+	read_gdtr(&ptr);
+	return (void *)ptr.addr;
+}
+
 static inline void write_gdtr(const struct desc_table_ptr *ptr)
 {
 	__asm__ ("lgdt %0" : : "m"(*ptr));

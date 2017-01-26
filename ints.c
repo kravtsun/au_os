@@ -4,6 +4,7 @@
 #include "desc.h"
 #include "print.h"
 #include "backtrace.h"
+#include "syscall.h"
 
 #define IDT_PRESENT	((uint64_t)1 << 47)
 #define IDT_INT_GATE	((uint64_t)14 << 40)
@@ -14,6 +15,8 @@
 #define IRQS		16
 #define ERRORS		32
 #define PIC_OFFSET	ERRORS
+
+#define IDT_SYSCALL ((uint64_t)0x80) // as in Linux kernel.
 
 
 struct idt_entry {
@@ -67,7 +70,7 @@ static void call_irq_handler(int irq, struct frame *frame)
 
 void __int_handler(struct frame *frame)
 {
-	if (frame->intno < ERRORS)
+	if (frame->intno == IDT_SYSCALL || frame->intno < ERRORS)
 		call_error_handler(frame->intno, frame);
 	else if (frame->intno < ERRORS + IRQS)
 		call_irq_handler(frame->intno - ERRORS, frame);
@@ -106,6 +109,11 @@ static void idt_setup(void)
 	 * disables interrupts until iret instruction executed. */
 	for (int i = 0; i != IDT_ENTRIES; ++i)
 		idt_entry_setup(&idt[i], KERNEL_CS, __int_entry[i], flags);
+
+	// syscall_setup.
+	extern void syscall();
+	idt_entry_setup(idt + IDT_SYSCALL, KERNEL_CS, (unsigned long)&syscall,
+		IDT_PRESENT | IDT_TRAP_GATE | IDT_USER);
 
 	struct desc_table_ptr ptr = {
 		.size = sizeof(idt) - 1,

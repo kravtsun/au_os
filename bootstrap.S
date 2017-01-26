@@ -243,6 +243,8 @@ start64:
 
 
 	.bss
+	.global bootstrap_stack_top, bootstrap_stack_bottom
+bootstrap_stack_bottom:
 	.align PAGE_SIZE
 	.space PAGE_SIZE
 bootstrap_stack_top:

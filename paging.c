@@ -146,7 +146,7 @@ static void pt_map_pages(pte_t *pml4, uintptr_t begin, uintptr_t end,
 	/* We pass end - 1 to avoid overflows, and __pt_map_pages assumes
 	 * both ends of the interval are included in the interval. */
 	__pt_map_pages(pml4, begin, end - 1, phys,
-				flags | __PTE_PRESENT | __PTE_LARGE, 4, pool);
+				flags | __PTE_PRESENT | __PTE_LARGE | PTE_USER, 4, pool);
 }
 
 static void pt_populate_pages(pte_t *pml4, uintptr_t begin, uintptr_t end,

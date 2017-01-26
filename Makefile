@@ -41,8 +41,8 @@ clean:
 
 
 run: $(EXEC)
-	qemu-system-x86_64 -kernel $(EXEC) -serial stdio -initrd misc/initramfs_image.cpio
+	qemu-system-x86_64 -kernel $(EXEC) -serial stdio -initrd misc/image.cpio
 
 debug: $(EXEC)
-	qemu-system-x86_64 -kernel $(EXEC) -monitor stdio -d int -singlestep -serial stdio  -initrd misc/initramfs_image.cpio
+	qemu-system-x86_64 -kernel $(EXEC) -monitor stdio -d int -singlestep -serial stdio  -initrd misc/image.cpio
 

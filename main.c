@@ -16,6 +16,8 @@
 #include "defines.h"
 #include "string.h"
 
+#include "syscall.h"
+
 static void qemu_gdb_hang(void)
 {
 #ifdef DEBUG
@@ -27,6 +29,16 @@ static void qemu_gdb_hang(void)
 
 void ramfs_tests()
 {}
+
+
+void syscall_tests()
+{
+    printf("Starting system call tests!\n");
+    static const char *str = "Hello, syscall!\n";
+    const size_t n = strlen(str);
+    extern void write_usermode(const char *str, const size_t n);
+    write_usermode(str, n);
+}
 
 void main(struct multiboot_info *mboot_info)
 {
@@ -44,9 +56,8 @@ void main(struct multiboot_info *mboot_info)
     threads_setup();
     enable_ints();
 
-    initramfs();
+    syscall_tests();
 
-    ramfs_tests();
-
+    printf("===The end.===\n");
     idle();
 }

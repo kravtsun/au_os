@@ -1,1059 +1,346 @@
+
 	.text
-isr0:
-	pushq $0
-	pushq $0
-	jmp common
-isr1:
-	pushq $0
-	pushq $1
-	jmp common
-isr2:
-	pushq $0
-	pushq $2
-	jmp common
-isr3:
-	pushq $0
-	pushq $3
-	jmp common
-isr4:
-	pushq $0
-	pushq $4
-	jmp common
-isr5:
-	pushq $0
-	pushq $5
-	jmp common
-isr6:
-	pushq $0
-	pushq $6
-	jmp common
-isr7:
-	pushq $0
-	pushq $7
-	jmp common
-isr8:
-	pushq $8
-	jmp common
-isr9:
-	pushq $0
-	pushq $9
-	jmp common
-isr10:
-	pushq $10
-	jmp common
-isr11:
-	pushq $11
-	jmp common
-isr12:
-	pushq $12
-	jmp common
-isr13:
-	pushq $13
-	jmp common
-isr14:
-	pushq $14
-	jmp common
-isr15:
-	pushq $0
-	pushq $15
-	jmp common
-isr16:
-	pushq $0
-	pushq $16
-	jmp common
-isr17:
-	pushq $17
-	jmp common
-isr18:
-	pushq $0
-	pushq $18
-	jmp common
-isr19:
-	pushq $0
-	pushq $19
-	jmp common
-isr20:
-	pushq $0
-	pushq $20
-	jmp common
-isr21:
-	pushq $0
-	pushq $21
-	jmp common
-isr22:
-	pushq $0
-	pushq $22
-	jmp common
-isr23:
-	pushq $0
-	pushq $23
-	jmp common
-isr24:
-	pushq $0
-	pushq $24
-	jmp common
-isr25:
-	pushq $0
-	pushq $25
-	jmp common
-isr26:
-	pushq $0
-	pushq $26
-	jmp common
-isr27:
-	pushq $0
-	pushq $27
-	jmp common
-isr28:
-	pushq $0
-	pushq $28
-	jmp common
-isr29:
-	pushq $0
-	pushq $29
-	jmp common
-isr30:
-	pushq $0
-	pushq $30
-	jmp common
-isr31:
-	pushq $0
-	pushq $31
-	jmp common
-isr32:
-	pushq $0
-	pushq $32
-	jmp common
-isr33:
-	pushq $0
-	pushq $33
-	jmp common
-isr34:
-	pushq $0
-	pushq $34
-	jmp common
-isr35:
-	pushq $0
-	pushq $35
-	jmp common
-isr36:
-	pushq $0
-	pushq $36
-	jmp common
-isr37:
-	pushq $0
-	pushq $37
-	jmp common
-isr38:
-	pushq $0
-	pushq $38
-	jmp common
-isr39:
-	pushq $0
-	pushq $39
-	jmp common
-isr40:
-	pushq $0
-	pushq $40
-	jmp common
-isr41:
-	pushq $0
-	pushq $41
-	jmp common
-isr42:
-	pushq $0
-	pushq $42
-	jmp common
-isr43:
-	pushq $0
-	pushq $43
-	jmp common
-isr44:
-	pushq $0
-	pushq $44
-	jmp common
-isr45:
-	pushq $0
-	pushq $45
-	jmp common
-isr46:
-	pushq $0
-	pushq $46
-	jmp common
-isr47:
-	pushq $0
-	pushq $47
-	jmp common
-isr48:
-	pushq $0
-	pushq $48
-	jmp common
-isr49:
-	pushq $0
-	pushq $49
-	jmp common
-isr50:
-	pushq $0
-	pushq $50
-	jmp common
-isr51:
-	pushq $0
-	pushq $51
-	jmp common
-isr52:
-	pushq $0
-	pushq $52
-	jmp common
-isr53:
-	pushq $0
-	pushq $53
-	jmp common
-isr54:
-	pushq $0
-	pushq $54
-	jmp common
-isr55:
-	pushq $0
-	pushq $55
-	jmp common
-isr56:
-	pushq $0
-	pushq $56
-	jmp common
-isr57:
-	pushq $0
-	pushq $57
-	jmp common
-isr58:
-	pushq $0
-	pushq $58
-	jmp common
-isr59:
-	pushq $0
-	pushq $59
-	jmp common
-isr60:
-	pushq $0
-	pushq $60
-	jmp common
-isr61:
-	pushq $0
-	pushq $61
-	jmp common
-isr62:
-	pushq $0
-	pushq $62
-	jmp common
-isr63:
-	pushq $0
-	pushq $63
-	jmp common
-isr64:
-	pushq $0
-	pushq $64
-	jmp common
-isr65:
-	pushq $0
-	pushq $65
-	jmp common
-isr66:
-	pushq $0
-	pushq $66
-	jmp common
-isr67:
-	pushq $0
-	pushq $67
-	jmp common
-isr68:
-	pushq $0
-	pushq $68
-	jmp common
-isr69:
-	pushq $0
-	pushq $69
-	jmp common
-isr70:
-	pushq $0
-	pushq $70
-	jmp common
-isr71:
-	pushq $0
-	pushq $71
-	jmp common
-isr72:
-	pushq $0
-	pushq $72
-	jmp common
-isr73:
-	pushq $0
-	pushq $73
-	jmp common
-isr74:
-	pushq $0
-	pushq $74
-	jmp common
-isr75:
-	pushq $0
-	pushq $75
-	jmp common
-isr76:
-	pushq $0
-	pushq $76
-	jmp common
-isr77:
-	pushq $0
-	pushq $77
-	jmp common
-isr78:
-	pushq $0
-	pushq $78
-	jmp common
-isr79:
-	pushq $0
-	pushq $79
-	jmp common
-isr80:
-	pushq $0
-	pushq $80
-	jmp common
-isr81:
-	pushq $0
-	pushq $81
-	jmp common
-isr82:
-	pushq $0
-	pushq $82
-	jmp common
-isr83:
-	pushq $0
-	pushq $83
-	jmp common
-isr84:
-	pushq $0
-	pushq $84
-	jmp common
-isr85:
-	pushq $0
-	pushq $85
-	jmp common
-isr86:
-	pushq $0
-	pushq $86
-	jmp common
-isr87:
-	pushq $0
-	pushq $87
-	jmp common
-isr88:
-	pushq $0
-	pushq $88
-	jmp common
-isr89:
-	pushq $0
-	pushq $89
-	jmp common
-isr90:
-	pushq $0
-	pushq $90
-	jmp common
-isr91:
-	pushq $0
-	pushq $91
-	jmp common
-isr92:
-	pushq $0
-	pushq $92
-	jmp common
-isr93:
-	pushq $0
-	pushq $93
-	jmp common
-isr94:
-	pushq $0
-	pushq $94
-	jmp common
-isr95:
-	pushq $0
-	pushq $95
-	jmp common
-isr96:
-	pushq $0
-	pushq $96
-	jmp common
-isr97:
-	pushq $0
-	pushq $97
-	jmp common
-isr98:
-	pushq $0
-	pushq $98
-	jmp common
-isr99:
-	pushq $0
-	pushq $99
-	jmp common
-isr100:
-	pushq $0
-	pushq $100
-	jmp common
-isr101:
-	pushq $0
-	pushq $101
-	jmp common
-isr102:
-	pushq $0
-	pushq $102
-	jmp common
-isr103:
-	pushq $0
-	pushq $103
-	jmp common
-isr104:
-	pushq $0
-	pushq $104
-	jmp common
-isr105:
-	pushq $0
-	pushq $105
-	jmp common
-isr106:
-	pushq $0
-	pushq $106
-	jmp common
-isr107:
-	pushq $0
-	pushq $107
-	jmp common
-isr108:
-	pushq $0
-	pushq $108
-	jmp common
-isr109:
-	pushq $0
-	pushq $109
-	jmp common
-isr110:
-	pushq $0
-	pushq $110
-	jmp common
-isr111:
-	pushq $0
-	pushq $111
-	jmp common
-isr112:
-	pushq $0
-	pushq $112
-	jmp common
-isr113:
-	pushq $0
-	pushq $113
-	jmp common
-isr114:
-	pushq $0
-	pushq $114
-	jmp common
-isr115:
-	pushq $0
-	pushq $115
-	jmp common
-isr116:
-	pushq $0
-	pushq $116
-	jmp common
-isr117:
-	pushq $0
-	pushq $117
-	jmp common
-isr118:
-	pushq $0
-	pushq $118
-	jmp common
-isr119:
-	pushq $0
-	pushq $119
-	jmp common
-isr120:
-	pushq $0
-	pushq $120
-	jmp common
-isr121:
-	pushq $0
-	pushq $121
-	jmp common
-isr122:
-	pushq $0
-	pushq $122
-	jmp common
-isr123:
-	pushq $0
-	pushq $123
-	jmp common
-isr124:
-	pushq $0
-	pushq $124
-	jmp common
-isr125:
-	pushq $0
-	pushq $125
-	jmp common
-isr126:
-	pushq $0
-	pushq $126
-	jmp common
-isr127:
-	pushq $0
-	pushq $127
-	jmp common
-isr128:
-	pushq $0
-	pushq $128
-	jmp common
-isr129:
-	pushq $0
-	pushq $129
-	jmp common
-isr130:
-	pushq $0
-	pushq $130
-	jmp common
-isr131:
-	pushq $0
-	pushq $131
-	jmp common
-isr132:
-	pushq $0
-	pushq $132
-	jmp common
-isr133:
-	pushq $0
-	pushq $133
-	jmp common
-isr134:
-	pushq $0
-	pushq $134
-	jmp common
-isr135:
-	pushq $0
-	pushq $135
-	jmp common
-isr136:
-	pushq $0
-	pushq $136
-	jmp common
-isr137:
-	pushq $0
-	pushq $137
-	jmp common
-isr138:
-	pushq $0
-	pushq $138
-	jmp common
-isr139:
-	pushq $0
-	pushq $139
-	jmp common
-isr140:
-	pushq $0
-	pushq $140
-	jmp common
-isr141:
-	pushq $0
-	pushq $141
-	jmp common
-isr142:
-	pushq $0
-	pushq $142
-	jmp common
-isr143:
-	pushq $0
-	pushq $143
-	jmp common
-isr144:
-	pushq $0
-	pushq $144
-	jmp common
-isr145:
-	pushq $0
-	pushq $145
-	jmp common
-isr146:
-	pushq $0
-	pushq $146
-	jmp common
-isr147:
-	pushq $0
-	pushq $147
-	jmp common
-isr148:
-	pushq $0
-	pushq $148
-	jmp common
-isr149:
-	pushq $0
-	pushq $149
-	jmp common
-isr150:
-	pushq $0
-	pushq $150
-	jmp common
-isr151:
-	pushq $0
-	pushq $151
-	jmp common
-isr152:
-	pushq $0
-	pushq $152
-	jmp common
-isr153:
-	pushq $0
-	pushq $153
-	jmp common
-isr154:
-	pushq $0
-	pushq $154
-	jmp common
-isr155:
-	pushq $0
-	pushq $155
-	jmp common
-isr156:
-	pushq $0
-	pushq $156
-	jmp common
-isr157:
-	pushq $0
-	pushq $157
-	jmp common
-isr158:
-	pushq $0
-	pushq $158
-	jmp common
-isr159:
-	pushq $0
-	pushq $159
-	jmp common
-isr160:
-	pushq $0
-	pushq $160
-	jmp common
-isr161:
-	pushq $0
-	pushq $161
-	jmp common
-isr162:
-	pushq $0
-	pushq $162
-	jmp common
-isr163:
-	pushq $0
-	pushq $163
-	jmp common
-isr164:
-	pushq $0
-	pushq $164
-	jmp common
-isr165:
-	pushq $0
-	pushq $165
-	jmp common
-isr166:
-	pushq $0
-	pushq $166
-	jmp common
-isr167:
-	pushq $0
-	pushq $167
-	jmp common
-isr168:
-	pushq $0
-	pushq $168
-	jmp common
-isr169:
-	pushq $0
-	pushq $169
-	jmp common
-isr170:
-	pushq $0
-	pushq $170
-	jmp common
-isr171:
-	pushq $0
-	pushq $171
-	jmp common
-isr172:
-	pushq $0
-	pushq $172
-	jmp common
-isr173:
-	pushq $0
-	pushq $173
-	jmp common
-isr174:
-	pushq $0
-	pushq $174
-	jmp common
-isr175:
-	pushq $0
-	pushq $175
-	jmp common
-isr176:
-	pushq $0
-	pushq $176
-	jmp common
-isr177:
-	pushq $0
-	pushq $177
-	jmp common
-isr178:
-	pushq $0
-	pushq $178
-	jmp common
-isr179:
-	pushq $0
-	pushq $179
-	jmp common
-isr180:
-	pushq $0
-	pushq $180
-	jmp common
-isr181:
-	pushq $0
-	pushq $181
-	jmp common
-isr182:
-	pushq $0
-	pushq $182
-	jmp common
-isr183:
-	pushq $0
-	pushq $183
-	jmp common
-isr184:
-	pushq $0
-	pushq $184
-	jmp common
-isr185:
-	pushq $0
-	pushq $185
-	jmp common
-isr186:
-	pushq $0
-	pushq $186
-	jmp common
-isr187:
-	pushq $0
-	pushq $187
-	jmp common
-isr188:
-	pushq $0
-	pushq $188
-	jmp common
-isr189:
-	pushq $0
-	pushq $189
-	jmp common
-isr190:
-	pushq $0
-	pushq $190
-	jmp common
-isr191:
-	pushq $0
-	pushq $191
-	jmp common
-isr192:
-	pushq $0
-	pushq $192
-	jmp common
-isr193:
-	pushq $0
-	pushq $193
-	jmp common
-isr194:
-	pushq $0
-	pushq $194
-	jmp common
-isr195:
-	pushq $0
-	pushq $195
-	jmp common
-isr196:
-	pushq $0
-	pushq $196
-	jmp common
-isr197:
-	pushq $0
-	pushq $197
-	jmp common
-isr198:
-	pushq $0
-	pushq $198
-	jmp common
-isr199:
-	pushq $0
-	pushq $199
-	jmp common
-isr200:
-	pushq $0
-	pushq $200
-	jmp common
-isr201:
-	pushq $0
-	pushq $201
-	jmp common
-isr202:
-	pushq $0
-	pushq $202
-	jmp common
-isr203:
-	pushq $0
-	pushq $203
-	jmp common
-isr204:
-	pushq $0
-	pushq $204
-	jmp common
-isr205:
-	pushq $0
-	pushq $205
-	jmp common
-isr206:
-	pushq $0
-	pushq $206
-	jmp common
-isr207:
-	pushq $0
-	pushq $207
-	jmp common
-isr208:
-	pushq $0
-	pushq $208
-	jmp common
-isr209:
-	pushq $0
-	pushq $209
-	jmp common
-isr210:
-	pushq $0
-	pushq $210
-	jmp common
-isr211:
-	pushq $0
-	pushq $211
-	jmp common
-isr212:
-	pushq $0
-	pushq $212
-	jmp common
-isr213:
-	pushq $0
-	pushq $213
-	jmp common
-isr214:
-	pushq $0
-	pushq $214
-	jmp common
-isr215:
-	pushq $0
-	pushq $215
-	jmp common
-isr216:
-	pushq $0
-	pushq $216
-	jmp common
-isr217:
-	pushq $0
-	pushq $217
-	jmp common
-isr218:
-	pushq $0
-	pushq $218
-	jmp common
-isr219:
-	pushq $0
-	pushq $219
-	jmp common
-isr220:
-	pushq $0
-	pushq $220
-	jmp common
-isr221:
-	pushq $0
-	pushq $221
-	jmp common
-isr222:
-	pushq $0
-	pushq $222
-	jmp common
-isr223:
-	pushq $0
-	pushq $223
-	jmp common
-isr224:
-	pushq $0
-	pushq $224
-	jmp common
-isr225:
-	pushq $0
-	pushq $225
-	jmp common
-isr226:
-	pushq $0
-	pushq $226
-	jmp common
-isr227:
-	pushq $0
-	pushq $227
-	jmp common
-isr228:
-	pushq $0
-	pushq $228
-	jmp common
-isr229:
-	pushq $0
-	pushq $229
-	jmp common
-isr230:
-	pushq $0
-	pushq $230
-	jmp common
-isr231:
-	pushq $0
-	pushq $231
-	jmp common
-isr232:
-	pushq $0
-	pushq $232
-	jmp common
-isr233:
-	pushq $0
-	pushq $233
-	jmp common
-isr234:
-	pushq $0
-	pushq $234
-	jmp common
-isr235:
-	pushq $0
-	pushq $235
-	jmp common
-isr236:
-	pushq $0
-	pushq $236
-	jmp common
-isr237:
-	pushq $0
-	pushq $237
-	jmp common
-isr238:
-	pushq $0
-	pushq $238
-	jmp common
-isr239:
-	pushq $0
-	pushq $239
-	jmp common
-isr240:
-	pushq $0
-	pushq $240
-	jmp common
-isr241:
-	pushq $0
-	pushq $241
-	jmp common
-isr242:
-	pushq $0
-	pushq $242
-	jmp common
-isr243:
-	pushq $0
-	pushq $243
-	jmp common
-isr244:
-	pushq $0
-	pushq $244
-	jmp common
-isr245:
-	pushq $0
-	pushq $245
-	jmp common
-isr246:
-	pushq $0
-	pushq $246
-	jmp common
-isr247:
-	pushq $0
-	pushq $247
-	jmp common
-isr248:
-	pushq $0
-	pushq $248
-	jmp common
-isr249:
-	pushq $0
-	pushq $249
-	jmp common
-isr250:
-	pushq $0
-	pushq $250
-	jmp common
-isr251:
-	pushq $0
-	pushq $251
-	jmp common
-isr252:
-	pushq $0
-	pushq $252
-	jmp common
-isr253:
-	pushq $0
-	pushq $253
-	jmp common
-isr254:
-	pushq $0
-	pushq $254
-	jmp common
-isr255:
-	pushq $0
-	pushq $255
+
+#define ISR_ENTRY(n) \
+isr ## n: \
+	pushq $0; \
+	pushq $n; \
 	jmp common
 
+#define ISR_MENTRY(n) \
+isr ## n: \
+	pushq $n; \
+	jmp common
+
+
+ISR_ENTRY(0)
+ISR_ENTRY(1)
+ISR_ENTRY(2)
+ISR_ENTRY(3)
+ISR_ENTRY(4)
+ISR_ENTRY(5)
+ISR_ENTRY(6)
+ISR_ENTRY(7)
+ISR_MENTRY(8)
+ISR_ENTRY(9)
+ISR_MENTRY(10)
+ISR_MENTRY(11)
+ISR_MENTRY(12)
+ISR_MENTRY(13)
+ISR_MENTRY(14)
+ISR_ENTRY(15)
+ISR_ENTRY(16)
+ISR_MENTRY(17)
+ISR_ENTRY(18)
+ISR_ENTRY(19)
+ISR_ENTRY(20)
+ISR_ENTRY(21)
+ISR_ENTRY(22)
+ISR_ENTRY(23)
+ISR_ENTRY(24)
+ISR_ENTRY(25)
+ISR_ENTRY(26)
+ISR_ENTRY(27)
+ISR_ENTRY(28)
+ISR_ENTRY(29)
+ISR_ENTRY(30)
+ISR_ENTRY(31)
+ISR_ENTRY(32)
+ISR_ENTRY(33)
+ISR_ENTRY(34)
+ISR_ENTRY(35)
+ISR_ENTRY(36)
+ISR_ENTRY(37)
+ISR_ENTRY(38)
+ISR_ENTRY(39)
+ISR_ENTRY(40)
+ISR_ENTRY(41)
+ISR_ENTRY(42)
+ISR_ENTRY(43)
+ISR_ENTRY(44)
+ISR_ENTRY(45)
+ISR_ENTRY(46)
+ISR_ENTRY(47)
+ISR_ENTRY(48)
+ISR_ENTRY(49)
+ISR_ENTRY(50)
+ISR_ENTRY(51)
+ISR_ENTRY(52)
+ISR_ENTRY(53)
+ISR_ENTRY(54)
+ISR_ENTRY(55)
+ISR_ENTRY(56)
+ISR_ENTRY(57)
+ISR_ENTRY(58)
+ISR_ENTRY(59)
+ISR_ENTRY(60)
+ISR_ENTRY(61)
+ISR_ENTRY(62)
+ISR_ENTRY(63)
+ISR_ENTRY(64)
+ISR_ENTRY(65)
+ISR_ENTRY(66)
+ISR_ENTRY(67)
+ISR_ENTRY(68)
+ISR_ENTRY(69)
+ISR_ENTRY(70)
+ISR_ENTRY(71)
+ISR_ENTRY(72)
+ISR_ENTRY(73)
+ISR_ENTRY(74)
+ISR_ENTRY(75)
+ISR_ENTRY(76)
+ISR_ENTRY(77)
+ISR_ENTRY(78)
+ISR_ENTRY(79)
+ISR_ENTRY(80)
+ISR_ENTRY(81)
+ISR_ENTRY(82)
+ISR_ENTRY(83)
+ISR_ENTRY(84)
+ISR_ENTRY(85)
+ISR_ENTRY(86)
+ISR_ENTRY(87)
+ISR_ENTRY(88)
+ISR_ENTRY(89)
+ISR_ENTRY(90)
+ISR_ENTRY(91)
+ISR_ENTRY(92)
+ISR_ENTRY(93)
+ISR_ENTRY(94)
+ISR_ENTRY(95)
+ISR_ENTRY(96)
+ISR_ENTRY(97)
+ISR_ENTRY(98)
+ISR_ENTRY(99)
+ISR_ENTRY(100)
+ISR_ENTRY(101)
+ISR_ENTRY(102)
+ISR_ENTRY(103)
+ISR_ENTRY(104)
+ISR_ENTRY(105)
+ISR_ENTRY(106)
+ISR_ENTRY(107)
+ISR_ENTRY(108)
+ISR_ENTRY(109)
+ISR_ENTRY(110)
+ISR_ENTRY(111)
+ISR_ENTRY(112)
+ISR_ENTRY(113)
+ISR_ENTRY(114)
+ISR_ENTRY(115)
+ISR_ENTRY(116)
+ISR_ENTRY(117)
+ISR_ENTRY(118)
+ISR_ENTRY(119)
+ISR_ENTRY(120)
+ISR_ENTRY(121)
+ISR_ENTRY(122)
+ISR_ENTRY(123)
+ISR_ENTRY(124)
+ISR_ENTRY(125)
+ISR_ENTRY(126)
+ISR_ENTRY(127)
+ISR_ENTRY(128)
+ISR_ENTRY(129)
+ISR_ENTRY(130)
+ISR_ENTRY(131)
+ISR_ENTRY(132)
+ISR_ENTRY(133)
+ISR_ENTRY(134)
+ISR_ENTRY(135)
+ISR_ENTRY(136)
+ISR_ENTRY(137)
+ISR_ENTRY(138)
+ISR_ENTRY(139)
+ISR_ENTRY(140)
+ISR_ENTRY(141)
+ISR_ENTRY(142)
+ISR_ENTRY(143)
+ISR_ENTRY(144)
+ISR_ENTRY(145)
+ISR_ENTRY(146)
+ISR_ENTRY(147)
+ISR_ENTRY(148)
+ISR_ENTRY(149)
+ISR_ENTRY(150)
+ISR_ENTRY(151)
+ISR_ENTRY(152)
+ISR_ENTRY(153)
+ISR_ENTRY(154)
+ISR_ENTRY(155)
+ISR_ENTRY(156)
+ISR_ENTRY(157)
+ISR_ENTRY(158)
+ISR_ENTRY(159)
+ISR_ENTRY(160)
+ISR_ENTRY(161)
+ISR_ENTRY(162)
+ISR_ENTRY(163)
+ISR_ENTRY(164)
+ISR_ENTRY(165)
+ISR_ENTRY(166)
+ISR_ENTRY(167)
+ISR_ENTRY(168)
+ISR_ENTRY(169)
+ISR_ENTRY(170)
+ISR_ENTRY(171)
+ISR_ENTRY(172)
+ISR_ENTRY(173)
+ISR_ENTRY(174)
+ISR_ENTRY(175)
+ISR_ENTRY(176)
+ISR_ENTRY(177)
+ISR_ENTRY(178)
+ISR_ENTRY(179)
+ISR_ENTRY(180)
+ISR_ENTRY(181)
+ISR_ENTRY(182)
+ISR_ENTRY(183)
+ISR_ENTRY(184)
+ISR_ENTRY(185)
+ISR_ENTRY(186)
+ISR_ENTRY(187)
+ISR_ENTRY(188)
+ISR_ENTRY(189)
+ISR_ENTRY(190)
+ISR_ENTRY(191)
+ISR_ENTRY(192)
+ISR_ENTRY(193)
+ISR_ENTRY(194)
+ISR_ENTRY(195)
+ISR_ENTRY(196)
+ISR_ENTRY(197)
+ISR_ENTRY(198)
+ISR_ENTRY(199)
+ISR_ENTRY(200)
+ISR_ENTRY(201)
+ISR_ENTRY(202)
+ISR_ENTRY(203)
+ISR_ENTRY(204)
+ISR_ENTRY(205)
+ISR_ENTRY(206)
+ISR_ENTRY(207)
+ISR_ENTRY(208)
+ISR_ENTRY(209)
+ISR_ENTRY(210)
+ISR_ENTRY(211)
+ISR_ENTRY(212)
+ISR_ENTRY(213)
+ISR_ENTRY(214)
+ISR_ENTRY(215)
+ISR_ENTRY(216)
+ISR_ENTRY(217)
+ISR_ENTRY(218)
+ISR_ENTRY(219)
+ISR_ENTRY(220)
+ISR_ENTRY(221)
+ISR_ENTRY(222)
+ISR_ENTRY(223)
+ISR_ENTRY(224)
+ISR_ENTRY(225)
+ISR_ENTRY(226)
+ISR_ENTRY(227)
+ISR_ENTRY(228)
+ISR_ENTRY(229)
+ISR_ENTRY(230)
+ISR_ENTRY(231)
+ISR_ENTRY(232)
+ISR_ENTRY(233)
+ISR_ENTRY(234)
+ISR_ENTRY(235)
+ISR_ENTRY(236)
+ISR_ENTRY(237)
+ISR_ENTRY(238)
+ISR_ENTRY(239)
+ISR_ENTRY(240)
+ISR_ENTRY(241)
+ISR_ENTRY(242)
+ISR_ENTRY(243)
+ISR_ENTRY(244)
+ISR_ENTRY(245)
+ISR_ENTRY(246)
+ISR_ENTRY(247)
+ISR_ENTRY(248)
+ISR_ENTRY(249)
+ISR_ENTRY(250)
+ISR_ENTRY(251)
+ISR_ENTRY(252)
+ISR_ENTRY(253)
+ISR_ENTRY(254)
+ISR_ENTRY(255)
+
 	.extern __int_handler
+
+#define SAVE_REGISTERS \
+	pushq %rdi; \
+	pushq %rsi; \
+	pushq %rdx; \
+	pushq %rcx; \
+	pushq %rax; \
+	pushq %r8; \
+	pushq %r9; \
+	pushq %r10; \
+	pushq %r11; \
+	pushq %rbx; \
+	pushq %rbp; \
+	pushq %r12; \
+	pushq %r13; \
+	pushq %r14; \
+	pushq %r15; \
+
+
+#define LOAD_REGISTERS \
+	popq %r15; \
+	popq %r14; \
+	popq %r13; \
+	popq %r12; \
+	popq %rbp; \
+	popq %rbx; \
+	popq %r11; \
+	popq %r10; \
+	popq %r9; \
+	popq %r8; \
+	popq %rax; \
+	popq %rcx; \
+	popq %rdx; \
+	popq %rsi; \
+	popq %rdi; \
+
+
 common:
-	pushq %rdi
-	pushq %rsi
-	pushq %rdx
-	pushq %rcx
-	pushq %rax
-	pushq %r8
-	pushq %r9
-	pushq %r10
-	pushq %r11
-	pushq %rbx
-	pushq %rbp
-	pushq %r12
-	pushq %r13
-	pushq %r14
-	pushq %r15
-	movq %rsp, %rdi
+    SAVE_REGISTERS
 	cld
+	movq %rsp, %rdi
 	call __int_handler
-	popq %r15
-	popq %r14
-	popq %r13
-	popq %r12
-	popq %rbp
-	popq %rbx
-	popq %r11
-	popq %r10
-	popq %r9
-	popq %r8
-	popq %rax
-	popq %rcx
-	popq %rdx
-	popq %rsi
-	popq %rdi
+    LOAD_REGISTERS
 	addq $0x10, %rsp
 	iretq
+
+	.global syscall
+syscall:
+	SAVE_REGISTERS
+
+.extern syscall_table
+	movq syscall_table(, %rax, 8), %rbx
+	cld
+	call *%rbx
+
+end_syscall:
+	LOAD_REGISTERS
+/*	addq $0x10, %rsp*/
+	iretq
+
+	.global __thread_entry
+__thread_entry:
+	movq %r12, %rdi
+	movq %r13, %rsi
+	movq %r14, %rdx
+
+	cld
+	call thread_entry
+	jmp end_syscall
+
 
 	.global __int_entry
 __int_entry:

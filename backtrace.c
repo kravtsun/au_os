@@ -2,6 +2,7 @@
 #include "memory.h"
 #include "print.h"
 #include "defines.h"
+#include "threads.h"
 
 #define RBP(x)	__asm__ ("movq %%rbp, %0" : "=rm"(x))
 #define RSP(x)	__asm__ ("movq %%rsp, %0" : "=rm"(x))
@@ -9,8 +10,8 @@
 
 void __backtrace(uintptr_t rbp, uintptr_t stack_begin, uintptr_t stack_end)
 {
+	printf("thread_pid = %d\n", thread_current()->pid);
 	int frame_index = 0;
-
 	while (rbp >= stack_begin && rbp + 16 <= stack_end) {
 		const uint64_t *frame = (const uint64_t *)rbp;
 		const uintptr_t prev_rbp = frame[0];
@@ -25,26 +26,27 @@ void __backtrace(uintptr_t rbp, uintptr_t stack_begin, uintptr_t stack_end)
 	}
 }
 
-/* Here we assume that stack is PAGE_SIZE long and PAGE_SIZE
- * aligned, alternatively we can export bootstrap stack limits
- * from bootstrap.S */
 uintptr_t stack_begin(void)
 {
-	uintptr_t rsp;
+//    uintptr_t rsp;
+//    RSP(rsp);
+//    return rsp & ~((uintptr_t)(PAGE_SIZE - 1));
 
-	RSP(rsp);
-	return rsp & ~((uintptr_t)(PAGE_SIZE - 1));
+	struct thread *thread = thread_current();
+	return (uintptr_t)thread_stack_begin(thread);
 }
 
 uintptr_t stack_end(void)
 {
-	return stack_begin() + PAGE_SIZE;
+//    return stack_begin() + PAGE_SIZE;
+
+	struct thread *thread = thread_current();
+	return (uintptr_t)thread_stack_end(thread);
 }
 
 void backtrace(void)
 {
 	uintptr_t rbp;
-
 	RBP(rbp);
 	__backtrace(rbp, stack_begin(), stack_end());
 }
